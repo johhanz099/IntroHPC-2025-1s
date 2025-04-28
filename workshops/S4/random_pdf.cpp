@@ -52,7 +52,7 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
   // TODO: compute an d print the pdf
   for (int ii = 0; ii < nbins; ii++)
   {
-    double pdf_ii = count_hist[ii] / (n_normalize * 1.0); // Probability density function for each position
+    double pdf_ii = count_hist[ii] / (nsamples * width); // Probability density function for each position
     double bin_center = xmin + (ii + 0.5) * width;  // I take bin_center as a representative of the bin
     std::cout << bin_center << "\t" << pdf_ii << std::endl;
   }
