@@ -1,3 +1,11 @@
+/*
+
+nsamples = 10^4 nbins
+*/
+
+
+
+
 #include <random>
 #include <iostream>
 #include <cstdlib>
@@ -21,41 +29,35 @@ int main(int argc, char **argv)
 void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, double xmax, int nbins)
 {
   // random stuff
-  std::mt19937 gen(seed);
+  std::mt19937_64 gen(seed);
   std::normal_distribution<double> dis{mu, sigma};
 
   // TODO: histogram stuff
   std::vector<int> count_hist(nbins,0);
 
-  double width = (xmax - xmin)/nbins; // bins's width
-  int n_normalize = 0;
+  double width = (xmax - xmin)/(nbins*1.0); // bins width
 
   for(int n = 0; n < nsamples; ++n) {
     double r = dis(gen);
+    //std::cout << r << std::endl; test for checking because if mu or sigma = a.x dis(gen) generates mu or sigma = a
+
     // TODO: fill here the counting histogram stuff
     // Avoid r out of range
     bool out = r < xmin || r >= xmax;
     if (!out){
-      int width_count = 0; // Counter to go through each bin
-      while (width_count < nbins){
-        double bin_min = xmin + width*width_count;
-        double bin_max = xmin + width*(width_count+1);
-        if (r >= bin_min && r < bin_max){
-          count_hist[width_count]++;
-          n_normalize++;
-          break;
-        }
-      width_count++;
-      }
+      int bin_index = (r - xmin) / width  ;
+      count_hist[bin_index]++;
     }  
   }
+  
   // TODO: compute an d print the pdf
   for (int ii = 0; ii < nbins; ii++)
   {
-    double pdf_ii = count_hist[ii] / (nsamples * width); // Probability density function for each position
+    double pdf_ii = count_hist[ii] / (nsamples * width * 1.0); // Probability density function for each position
     double bin_center = xmin + (ii + 0.5) * width;  // I take bin_center as a representative of the bin
-    std::cout << bin_center << "\t" << pdf_ii << std::endl;
+    std::cout << bin_center << "\t" << pdf_ii << "\n";
   }
+  
   
 
 }
