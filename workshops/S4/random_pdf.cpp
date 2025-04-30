@@ -28,6 +28,7 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
   std::vector<int> count_hist(nbins,0);
 
   double width = (xmax - xmin)/(nbins*1.0); // bins width
+  int N_in = 0; // To count r in range
 
   for(int n = 0; n < nsamples; ++n) {
     double r = dis(gen); //a
@@ -38,6 +39,7 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
     // Avoid r out of range
     bool out = r < xmin || r >= xmax;
     if (!out){
+      N_in ++;
       int bin_index = (r - xmin) / width  ;
       count_hist[bin_index]++;
     }
@@ -48,7 +50,7 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
   // TODO: compute an d print the pdf
   for (int ii = 0; ii < nbins; ii++)
   {
-    double pdf_ii = count_hist[ii] / (nsamples * width * 1.0); // Probability density function for each position
+    double pdf_ii = count_hist[ii] / (N_in * width * 1.0); // Probability density function for each position
     double bin_center = xmin + (ii + 0.5) * width;  // I take bin_center as a representative of the bin
     std::cout << bin_center << "\t" << pdf_ii << "\n";
   }
