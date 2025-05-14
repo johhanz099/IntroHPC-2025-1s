@@ -1,0 +1,2 @@
+Los primeros arreglos consistieron en eliminar redeclaraciones de variables junto con variables que no se usan,
+además de hacer que la función baz retorne algo cuado x = 0; en este punto el código compila sin sanitizers.    
