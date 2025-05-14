@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include <algorithm>
 
 int foo(int a, int b);
 int bar(int a, int b);
@@ -19,8 +20,9 @@ int main(int argc, char **argv)
     baz(25.9);
 
     const int NX = 2, NY = 3, NZ = 4;
-    double *x, y[NY], z[NZ];
+    double *x, y[NY]{0.0}, z[NZ]{0.0};
     x = new double[NX];
+    std::fill(x, x + NX, 0.0);
 
     //int ii, jj, kk; No se deben re declarar variables, además la variable kk no se le da uso
 

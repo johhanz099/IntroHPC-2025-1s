@@ -1,6 +1,3 @@
-Los primeros arreglos consistieron en eliminar redeclaraciones de variables junto con variables que no se usan,
-además de hacer que la función baz retorne algo cuado x == 0; en este punto el código compila sin sanitizers.
-
 Primeros arreglos (superciales) -> razón
 1. Agregar ';' en la linea que faltaba -> causa error al compilar
 2. Eliminar re-declaración de varibles -> genera ambiguedad y errores de compilacion
@@ -18,6 +15,9 @@ Arreglos más serios -> razón
    -> error en la impresión fiel de los arreglos
 10. print_array(x - NY, NY) o similares son peligrosos, por lo que se omiten en el código -> se esta moviendo el puntero fuera del rango legal  
 11. Liberar memoria dinamica del arreglo 'x' con 'delete[] x;' -> evitar errores en memoria
+
+Arreglo al usar Valgrind -> razón
+12. Se deben inicializar los arreglos con ceros -> evitar acceder a basura en memoria, lo que causa errores, comportamientos impredecibles y fallos detectados por Valgrind.
 
 Finalmente, 'x' no es continuo con 'y', 'z': 'x' está asignado dinámicamente, por lo que va al 'heap'; mientras que 'y', 'z' son arreglos locales y se almacenan
 en el 'stack'. Los arreglos 'y', 'z' son continuos en memoria y el orden es 'z' -> 'y'.
