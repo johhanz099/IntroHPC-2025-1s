@@ -1,2 +1,23 @@
 Los primeros arreglos consistieron en eliminar redeclaraciones de variables junto con variables que no se usan,
-además de hacer que la función baz retorne algo cuado x = 0; en este punto el código compila sin sanitizers.    
+además de hacer que la función baz retorne algo cuado x == 0; en este punto el código compila sin sanitizers.
+
+Primeros arreglos (superciales) -> razón
+1. Agregar ';' en la linea que faltaba -> causa error al compilar
+2. Eliminar re-declaración de varibles -> genera ambiguedad y errores de compilacion
+3. Eliminar variables que no se usan -> innecesario
+4. En la función baz arreglar entrada del condicional cambiando '=' por '==' y retornar algo -> correcto uso y retorno de la función
+
+Arreglos más serios -> razón
+5. Con sanitizers se encuentra una potencial división por cero en la función foo, por lo cual hay que hacer una excepción -> crash en tiempo de ejecución
+6. Si en la función bar se le quiere dar a 'c' un valor positivo resulta más claro usar abs -> evita overflow si 'a<0'
+7. En el primer ciclo de la función main se trata de acceder a un índice negativo en el arreglo, por lo que cambio 'x[jj] = ii;' por 'x[ii] = jj;' lo que tiene mas sentido
+   -> Esto puede corromper memoria o causar un fallo en tiempo de ejecución
+8. En el segundo ciclo de la funcion main hay que tener cuidado con el contador cuando este sea superior al tamano del arreglo 'x', por lo que se agrega un condicional
+   para manejarlo -> Acceso fuera de los límites
+9. El imprimir los arreglos con 'print_array' solo tiene sentido cuando los argumentos son compatibles i.e 'print_array(x, NX)' o 'print_array(y, NY)'
+   -> error en la impresión fiel de los arreglos
+10. print_array(x - NY, NY) o similares son peligrosos, por lo que se omiten en el código -> se esta moviendo el puntero fuera del rango legal  
+11. Liberar memoria dinamica del arreglo 'x' con 'delete[] x;' -> evitar errores en memoria
+
+Finalmente, 'x' no es continuo con 'y', 'z': 'x' está asignado dinámicamente, por lo que va al 'heap'; mientras que 'y', 'z' son arreglos locales y se almacenan
+en el 'stack'. Los arreglos 'y', 'z' son continuos en memoria y el orden es 'z' -> 'y'.
