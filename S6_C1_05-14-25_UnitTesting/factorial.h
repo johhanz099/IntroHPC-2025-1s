@@ -1,3 +1,4 @@
 #pragma once
 #include <iostream>
-long factorial(long n);
+int factorial(int n);
+int factorial_test(int mensaje);

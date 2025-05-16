@@ -1,0 +1,5 @@
+load env
+>> source .venv/bin/activate
+
+unload env
+>> source .venv/bin/deactivate
