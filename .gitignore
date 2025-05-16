@@ -7,3 +7,9 @@ a.out
 *otherGrades
 *.gdb_history
 *.supp
+*.gcov
+*.css
+*.html
+*.info
+*.gcno
+*.gcda
