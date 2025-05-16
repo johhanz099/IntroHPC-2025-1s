@@ -1,12 +1,15 @@
+CXX = g++
 CXXFLAGS = -fsanitize=address,undefined,leak -fprofile-arcs -ftest-coverage -fPIE
+LDFLAGS = -fsanitize=address,undefined,leak -fprofile-arcs -ftest-coverage -fPIE
+LDLIBS = -lCatch2Main -lCatch2
 
 all: main_factorial.x
 
 %.x: %.o factorial.o
-	g++ $(CXXFLAGS) $^ -o $@ -l Catch2Main -l Catch2
+	$(CXX) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 %.o: %.cpp
-	g++ $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 test: test_factorial.x
 	./$< 
@@ -18,6 +21,5 @@ coverage: test_factorial.x
 	genhtml coverage.info --output-directory coverage
 	@echo "open file coverage/index.html" 
 
-
 clean:
-	rm -f *.o *.x a.out	*.info *.gcno
+	rm -f *.o *.x a.out *.info *.gcno *.gcda *.gcov
