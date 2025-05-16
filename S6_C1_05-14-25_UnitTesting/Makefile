@@ -1,4 +1,4 @@
-CXXFLAGS = -fsanitize=address,undefined,leak -fprofile-arcs -ftest-coverage
+CXXFLAGS = -fsanitize=address,undefined,leak -fprofile-arcs -ftest-coverage -fPIE
 
 all: main_factorial.x
 
