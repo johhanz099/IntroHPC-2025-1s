@@ -6,6 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+          working-directory: IntroHCP-2025-1s/S6_C1_05-14-25_UnitTesting
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
