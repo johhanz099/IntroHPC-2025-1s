@@ -1,0 +1,32 @@
+HPC
+Programas eficientes
+
+9. Optimización (profiling -> dónde optimizar):
+
+9.1 Banderas de compilación
+3 Niveles (-Ox, con x en {1,2,3}):
+    1: básico
+    2: estándar
+    3: más rápido pero de cuidado, puede hacer cosas raras.
+
+Programación por bloques (caché CPU) (tamaño bloque ?)
+
+
+
+
+
+
+
+
+
+
+Detalles / trucos:
+1. Cosas viejas
+2. Lenguaje prog consola
+    >> for val in 0 1 2 3 fast; do echo "Optim level: $val"; gcc -O$val file_name; ./a.out; done
+
+
+
+
+Refs:
+Donald Knuth
