@@ -12,7 +12,13 @@ Programas eficientes
 Programación por bloques (caché CPU) (tamaño bloque ?)
 
 
-
+¿cómo puedo sacar el índice 1d para (i,j) con m filas y n columnas. Para el caso de RowMajor tenemos en cuenta el número de columnas
+    Estrategia: recordar conversion de binario a decimal.
+    1d = id = id(i,j) = i*n^1 + j*n^0
+                      = i*n + j
+Para calcular la función inversa hago uso del módulo y deel truncamiento para int / int
+    i = id / n
+    j = id % n
 
 
 
