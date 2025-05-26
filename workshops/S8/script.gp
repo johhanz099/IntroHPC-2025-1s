@@ -2,8 +2,8 @@ set terminal pdfcairo enhanced color font 'Arial,12'
 set output "t_vs_nFibonacci.pdf"
 
 set title "Distintos niveles de optimización"
-set xlabel "n-ésimo número de la secuencia de Fibonacci"
-set ylabel "Tiempo"
+set xlabel "n-ésimo término de la secuencia de Fibonacci"
+set ylabel "Tiempo (s)"
 set logscale y
 set format y "%.1e"
 set grid
@@ -30,13 +30,13 @@ set style line 10 lc rgb '#9467bd' dt (5,5) lw 2  # morado punteada
 
 # Gráfica
 plot \
-    "data_0.txt" using 1:2 with lines ls 1 title "Naive OPT=0", \
-    "data_1.txt" using 1:2 with lines ls 2 title "Naive OPT=1", \
-    "data_2.txt" using 1:2 with lines ls 3 title "Naive OPT=2", \
-    "data_3.txt" using 1:2 with lines ls 4 title "Naive OPT=3", \
-    "data_fast.txt" using 1:2 with lines ls 5 title "Naive OPT=fast", \
-    "data_0.txt" using 1:3 with lines ls 6 title "Fast OPT=0", \
-    "data_1.txt" using 1:3 with lines ls 7 title "Fast OPT=1", \
-    "data_2.txt" using 1:3 with lines ls 8 title "Fast OPT=2", \
-    "data_3.txt" using 1:3 with lines ls 9 title "Fast OPT=3", \
-    "data_fast.txt" using 1:3 with lines ls 10 title "Fast OPT=fast"
+    "data_0.txt" using 1:2 with lines ls 1 title "FibNaive OPT=0", \
+    "data_1.txt" using 1:2 with lines ls 2 title "FibNaive OPT=1", \
+    "data_2.txt" using 1:2 with lines ls 3 title "FibNaive OPT=2", \
+    "data_3.txt" using 1:2 with lines ls 4 title "FibNaive OPT=3", \
+    "data_fast.txt" using 1:2 with lines ls 5 title "vNaive OPT=fast", \
+    "data_0.txt" using 1:3 with lines ls 6 title "FibFast OPT=0", \
+    "data_1.txt" using 1:3 with lines ls 7 title "FibFast OPT=1", \
+    "data_2.txt" using 1:3 with lines ls 8 title "FibFast OPT=2", \
+    "data_3.txt" using 1:3 with lines ls 9 title "FibFast OPT=3", \
+    "data_fast.txt" using 1:3 with lines ls 10 title "FibFast OPT=fast"
