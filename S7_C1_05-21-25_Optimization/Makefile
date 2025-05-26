@@ -1,2 +1,2 @@
 clean:
-	rm -f *.o *.x a.out	*.info *.gcno
+	rm -f *.o *.x a.out	*.info *.gcno *.txt

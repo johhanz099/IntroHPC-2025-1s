@@ -51,10 +51,10 @@ int main(int argc, char **argv) {
     */
     
     // --- Perform Traditional Multiplication ---
-    auto start_trad = std::chrono::high_resolution_clock::now();
-    matrix_mult_traditional(A, B, C_traditional, N);
-    auto end_trad = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff_trad = end_trad - start_trad;
+    //auto start_trad = std::chrono::high_resolution_clock::now();
+    //matrix_mult_traditional(A, B, C_traditional, N);
+    //auto end_trad = std::chrono::high_resolution_clock::now();
+    //std::chrono::duration<double> diff_trad = end_trad - start_trad;
 
     //std::cout << "\n--- Result from Traditional Multiplication (" << diff_trad.count() << " s) ---" << std::endl;
     //print_matrix(C_traditional, N);
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     //print_matrix(C_blocked, N);
 
     //std::cout << diff_trad.count() << '\t' << diff_block.count() << std::endl;
-    std::cout << N << BLOCK_SIZE << diff_block.count() << std::endl;
+    std::cout << N << "\t" << BLOCK_SIZE << "\t" << diff_block.count() << std::endl;
 
 
     // --- Deallocate Memory ---
