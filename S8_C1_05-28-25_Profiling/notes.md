@@ -30,3 +30,9 @@ La impresión de los tiempos se da en algunas unidades "arbitrarias". Para conve
 std::chrono::duration<double> diff;
 std::cout << diff.count() << std::endl;
 
+
+Hay muchas más métricas para saber lo que está pasando con el código -- PROFILERS
+GPROF
+$ gcc -Wall -pg -g test_gprof.c -o test_gprof.x FUNDAMENTAL -pg
+Al ejecutar se genera un archivo.out. Para leerlo:
+$ gprof test_gprof.x gmon.out > analysis.txt
