@@ -8,8 +8,10 @@ long long fib_naive(int n);
 long long fib_fast(int n);
 
 int main(int argc, char **argv) {
-    std::cout.precision(2);
+
+    std::cout.precision(7);
     std::cout.setf(std::ios::scientific);
+
     int n = atoi(argv[1]);
     if (n < 0){
        std::cerr << "Debe escoger n mayor que cero" << std::endl;
