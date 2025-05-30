@@ -13,3 +13,9 @@
 *.info
 *.gcno
 *.gcda
+*.svg
+*.folded
+*.data
+profile_sumary
+*.perf
+*.old
