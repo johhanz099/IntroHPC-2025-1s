@@ -19,3 +19,30 @@ El uso más chévere es crear las flame graphs para visualizar mejor los tiempos
 Para descargar scripts. Vamos a downloads, clonamos github FlameGraph. Ejecutamos algo de ahí para generarla.
 
 Editar formatos vectoriales con Inkscape
+
+Speedscope: Usa el .perf para ver la info de una forma sencilla y más completa (online)
+
+Tarea: para usar hotspot -> descargar AppImage -> volverla ejecutable -> usar sin instalar
+chmod -x name.AppImages
+
+
+
+
+
+
+
+
+
+
+AppImage HUB
+Audacity: Fourier Transf
+
+Tips: formas de dejar corriendo con ciertos nproc : parallel -jnproc. Comando independiente del padre
+
+    nohup {command} &
+
+Otra forma con t-mux, más útil
+
+    tmux command
+
+Luego buscar forma de salir y volver a entrar
