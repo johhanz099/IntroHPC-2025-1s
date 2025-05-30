@@ -1,4 +1,4 @@
-PERF -> viene del kernel de Linux
+1. PERF -> viene del kernel de Linux (también .py - activando ciertas cosas)
 
 cómo usamos perf?
 Compilar con bandera
@@ -20,13 +20,13 @@ Para descargar scripts. Vamos a downloads, clonamos github FlameGraph. Ejecutamo
 
 Editar formatos vectoriales con Inkscape
 
-Speedscope: Usa el .perf para ver la info de una forma sencilla y más completa (online)
+2. Speedscope: Usa el .perf para ver la info de una forma sencilla y más completa (online)
 
-Tarea: para usar hotspot -> descargar AppImage -> volverla ejecutable -> usar sin instalar
+3. Hotspot -> descargar AppImage -> volverla ejecutable -> usar sin instalar
 chmod -x name.AppImages
 
-
-
+4. Valgrind - cachegrind and callgrind. 
+Cache misses -> ? Saltos de memoria -> lento
 
 
 
