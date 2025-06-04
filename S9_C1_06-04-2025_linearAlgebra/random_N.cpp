@@ -14,4 +14,6 @@ int main(int argc, char **argv)
     Eigen::VectorXd x = A.colPivHouseholderQr().solve(b);
     //std::cout << "The solution is:\n" << x << std::endl;
     std::cout << "Verification:\n" << (A*x - b).norm() << std::endl;
+
+    return 0;
 }
