@@ -21,3 +21,5 @@ profile_sumary
 *.old
 cero/
 .dat
+.def
+.sif
